@@ -3,7 +3,18 @@
 
 #include "process.h"
 
-void run_scheduler();
-void add_process_to_scheduler(Process *p);
+#define QUANTUM 20 // Quantum para Round Robin
 
-#endif
+// Función para agregar un proceso a la cola de procesos
+int addProcessToQueue(Process *process);
+
+// Función para ejecutar el planificador Round Robin avanzado
+void advancedRoundRobinScheduler();
+
+// Obtener acceso a la cola de procesos
+Process **getProcessQueue();
+
+// Obtener el número de procesos en la cola
+int *getProcessCount();
+
+#endif // SCHEDULER_H

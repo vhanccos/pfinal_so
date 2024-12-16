@@ -1,17 +1,32 @@
 CC = gcc
-CFLAGS = -Wall -g -Iinclude
-SRC = src/main.c src/scheduler.c src/process.c src/resource.c src/interrupt.c src/memory.c src/utils.c
-OBJ = $(SRC:.c=.o)
-EXEC = sistema_simulado
+CFLAGS = -Wall -Wextra -Iinclude -pthread
+LDFLAGS = -pthread
 
-all: $(EXEC)
+# Archivos fuente
+SRCS = main.c src/memory.c src/process.c src/scheduler.c
 
-$(EXEC): $(OBJ)
-	$(CC) $(OBJ) -o $(EXEC)
+# Nombre del ejecutable
+TARGET = scheduler
 
+# Objeto
+OBJS = $(SRCS:.c=.o)
+
+# Regla principal
+all: $(TARGET)
+
+# Enlazar el ejecutable
+$(TARGET): $(OBJS)
+	$(CC) $(OBJS) -o $@ $(LDFLAGS)
+
+# Compilar archivos fuente
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Limpiar archivos generados
 clean:
-	rm -f $(OBJ) $(EXEC)
+	rm -f $(OBJS) $(TARGET)
 
+# Reconstruir todo
+rebuild: clean all
+
+.PHONY: all clean rebuild
