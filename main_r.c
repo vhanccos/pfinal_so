@@ -206,8 +206,8 @@ void logPerformanceMetrics() {
     snprintf(buffer, sizeof(buffer),
              "Métricas de rendimiento:\nPromedio de Tiempo de Espera: %.2f\n"
              "Promedio de Tiempo de Retorno: %.2f\nPromedio de Tiempo de "
-             "Respuesta: %.2f\n"
-             "Throughput: %.2f\n",
+             "Respuesta: %.2f\n",
+             /* "Throughput: %.2f\n", */
              avgWaitTime, avgTurnaroundTime, avgResponseTime, throughput);
     logMessage(buffer);
   }
@@ -303,7 +303,7 @@ void advancedRoundRobinScheduler() {
   logMessage("Round Robin Scheduler finalizado");
 
   // Calcular y mostrar métricas de rendimiento
-  logPerformanceMetrics();
+  /* logPerformanceMetrics(); */
 }
 
 // Función para inicializar las métricas de cada proceso

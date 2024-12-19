@@ -118,8 +118,8 @@ void logPerformanceMetrics() {
     snprintf(buffer, sizeof(buffer),
              "Métricas de rendimiento:\nPromedio de Tiempo de Espera: %.2f\n"
              "Promedio de Tiempo de Retorno: %.2f\nPromedio de Tiempo de "
-             "Respuesta: %.2f\n"
-             "Throughput: %.2f\n",
+             "Respuesta: %.2f\n",
+             /* "Throughput: %.2f\n", */
              avgWaitTime, avgTurnaroundTime, avgResponseTime, throughput);
     logMessage(buffer);
   }
@@ -152,7 +152,7 @@ void displayMemoryFrames(int currentTime) {
     }
     logMessage(buffer);
   }
-  snprintf(buffer, sizeof(buffer), "Tiempo actual: %d\n", currentTime);
+  /* snprintf(buffer, sizeof(buffer), "Tiempo actual: %d\n", currentTime); */
   logMessage(buffer);
 }
 
@@ -291,7 +291,7 @@ void priorityScheduler() {
   logMessage("Priority Scheduler finalizado");
 
   // Calcular y mostrar métricas de rendimiento
-  logPerformanceMetrics();
+  /* logPerformanceMetrics(); */
 }
 
 int main() {
@@ -401,8 +401,8 @@ int main() {
   // Agregar procesos a la cola
   processQueue[processCount++] = p1;
   processQueue[processCount++] = p2;
-  processQueue[processCount++] = p3;
-  processQueue[processCount++] = p4;
+  /* processQueue[processCount++] = p3; */
+  /* processQueue[processCount++] = p4; */
 
   // Mostrar información de los procesos
   displayProcessInfo();
